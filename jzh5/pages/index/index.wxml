@@ -1,0 +1,57 @@
+
+<!--index.wxml-->
+<view class="content-view">
+  <view class="ui-flex  ui-p20">
+        <view style="font-size:34rpx">今日</view>
+        <text class="text-expend">支出：</text>
+        <text class="text-today-expend-num">￥{{dayExpend}}</text>
+        <text class="text-expend">收入：</text>
+        <text class="text-today-income-num">￥{{dayIncome}}</text>
+        <text class="text-expend">结余：</text>
+        <text class="text-num">￥{{dayBalance}}</text>
+  </view>
+  <view class="ui-flex  ui-p20">
+        <view style="font-size:34rpx">本月</view>
+        <text class="text-expend">支出：</text>
+        <text class="text-month-expend-num">￥{{monthExpend}}</text>
+        <text class="text-expend">收入：</text>
+        <text class="text-month-income-num">￥{{monthIncome}}</text>
+        <text class="text-expend">结余：</text>
+        <text class="text-num">￥{{monthBalance}}</text>
+  </view>
+  <view class="ui-flex  ui-p20">
+        <view style="font-size:34rpx">本年</view>
+        <text class="text-expend">支出：</text>
+        <text class="text-year-expend-num">￥{{yearExpend}}</text>
+        <text class="text-expend">收入：</text>
+        <text class="text-year-income-num">￥{{yearIncome}}</text>
+        <text class="text-expend">结余：</text>
+        <text class="text-num">￥{{yearBalance}}</text>
+  </view>
+  <view class="today-bill">今日账单</view>
+  <view >
+    <view class="line"></view>
+    <view class="ui-flex ui-p20"  >
+        <view class="detail_main">
+            <view class="detail_list">
+            <!--明细列表表头开始-->
+                <view class="detial_title">
+                    <view class="datail_date">{{day}}-{{week}}</view>
+                    <view class="datail_account">
+                    <view style="margin-right:20rpx">支出：￥{{dayExpend}}</view> <view>收入：￥{{dayIncome}}</view>
+                    </view>
+                </view>
+                <!--明细列表表头结束-->
+                <view wx:for="{{dayList}}">
+                        <view class="detail_detail" data-id="{{item.id}}" bindtap="onTodayBillItemClick"  bindtouchstart="onTouchStart" bindtouchend = "onTouchEnd">
+                        <image wx:if='{{item.type=="收入"}}' class="detail_img" src="../../img/income.png"/>
+                        <image wx:if='{{item.type=="支出"}}' class="detail_img" src="../../img/cost.png"/>
+                        <view class="detail_memo" style="margin-left:20rpx;width:55%;overflow:hidden">{{item.content}}</view>
+                        <view class="detail_income" style="position:absolute;right:30rpx;">￥{{item.price}}</view>
+                </view>
+                </view>
+            </view>
+        </view>
+    </view>
+  </view>
+</view>

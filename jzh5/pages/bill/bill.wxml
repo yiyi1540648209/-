@@ -1,0 +1,51 @@
+<view class="ui-flex-ver ui-height-100">
+
+  <!--顶部查询时间选择-->
+  <view class="date-select">
+    <view >选择月份:</view>
+    <picker class="ui-ml20" mode="date" value="{{startDate}}" fields="month" start="2015-09-01" end="endDate" bindchange="startDateChange">
+      <view class="picker-date">
+        {{startDate}}
+      </view>
+    </picker>
+  </view>
+    <view class="top">
+        <view>
+            <text class="text-expend">支出：</text>
+            <text class="text-expend-num">￥{{expend}}</text>
+        </view>
+        <view>
+            <text class="text-expend">收入：</text>
+            <text class="text-income-num">￥{{income}}</text>
+        </view>
+        <view>
+            <text class="text-expend">结余：</text>
+            <text class="text-num">￥{{balance}}</text>
+        </view>
+  </view>
+  <!--账单列表-->
+  <view class='view-scroll'>
+  <scroll-view scroll-y="true" class="ui-height-100 " >
+     <view class="detail_main" wx:for="{{monthData}}">
+        <view class="detail_list">
+        <!--明细列表表头开始-->
+            <view class="detial_title">
+                <view class="datail_date">{{item.accountDate}}-{{item.week}}</view>
+                <view class="datail_account">
+                <view style="margin-right:20rpx">支出：￥{{item.dayBalance.payCount}}</view> <view>收入：￥{{item.dayBalance.incomeCount}}</view>
+                </view>
+            </view>
+            <!--明细列表表头结束-->
+            <view wx:for="{{item.accountList}}" wx:for-item="elem" data-id="{{elem.id}}" bindtap="onTodayBillItemClick"  bindtouchstart="onTouchStart" bindtouchend = "onTouchEnd">
+            <view class="detail_detail">
+                <image wx:if='{{elem.type=="收入"}}' class="detail_img" src="../../img/income.png"/>
+                <image wx:if='{{elem.type=="支出"}}' class="detail_img" src="../../img/cost.png"/>
+                <view class="detail_memo" style="margin-left:20rpx;overflow:hidden;width:55%">{{elem.content}}</view>
+                <view class="detail_income" style="position:absolute;right:30rpx;">{{elem.price}}</view>
+            </view>
+            </view>
+        </view>
+    </view>
+  </scroll-view>
+  </view>
+</view>

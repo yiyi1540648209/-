@@ -1,0 +1,45 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/add/add",
+        "pages/bill/bill",
+        "pages/chart/chart",
+        "pages/edit/edit"
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#000",
+        "navigationBarTitleText": "阳光记账",
+        "navigationBarTextStyle": "#fff"
+    },
+    "tabBar": {
+        "color": "#cdcdcd",
+        "backgroundColor": "#ffffff",
+        "selectedColor": "#ff9900",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "img/home.png",
+                "selectedIconPath": "img/home_on.png",
+                "text": "首页",
+                "selectedColor": "#1296db"
+            },
+            {
+                "pagePath": "pages/add/add",
+                "iconPath": "img/add.png",
+                "selectedIconPath": "img/add_on.png",
+                "text": "记一笔",
+                "selectedColor": "#1296db"
+            },
+            {
+                "pagePath": "pages/bill/bill",
+                "iconPath": "img/bill.png",
+                "selectedIconPath": "img/bill_on.png",
+                "text": "账单",
+                "selectedColor": "#1296db"
+            }
+        ]
+    }
+}
